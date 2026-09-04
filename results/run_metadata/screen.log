@@ -1,0 +1,252 @@
+
+❌ Missing Required Arguments:
+   • Argument --vcf is required by module(s): gcta_gene
+   • Argument --dataset-id is required by module(s): gcta_gene
+   • Argument --output-directory is required by module(s): gcta_gene
+
+The pipeline cannot start yet.
+Add the missing values shown above, then run the command again.
+
+Steps that will run
+
+ 1) formatter
+      • Prepare the configured downstream-analysis input tables from the GWAS-VCF.
+
+ 2) gcta_gene
+      • Run GCTA fastBAT gene/segment/set or mBAT-combo association analysis.
+
+Options for these steps
+
+Usage: postgwas pipeline [options] --modules gcta_gene
+
+Options:
+  -h, --help              show this help message and exit
+  --show-screen           Display PostGWAS progress, summaries, warnings, and
+                          errors in the terminal (Default: true).
+  --hide-screen           Hide PostGWAS terminal output while continuing to
+                          save the same screen stream to
+                          logging.screen_log_file.
+
+Performance:
+  --threads N             Total CPU-thread budget across all concurrent tasks.
+                          PostGWAS chooses automatically if omitted
+                          (Default: 11).
+  --memory-gb GB          Maximum total memory PostGWAS may use, in gigabytes.
+                          If omitted, PostGWAS uses up to 90% of available
+                          physical memory (Default: 57 GB).
+  --seed N                Number used to make randomized analyses
+                          reproducible. Use the same value to reproduce a run
+                          (Default: 10).
+
+Run continuation:
+  --resume, --no-resume   Reuse existing outputs only after the selected
+                          module validates their completion state and
+                          provenance (Default: true).
+  --overwrite             Replace existing outputs owned by the selected run;
+                          this takes precedence over resume (Default: false).
+
+Input file:
+  --vcf PATH              Required: Harmonised GWAS-VCF file to analyse.
+
+Output:
+  --dataset-id NAME       Required: Short, unique name for the dataset, such
+                          as PGC3_SCZ_EUR. It is used in output file names.
+  --output-directory PATH
+                          Required: Folder where PostGWAS will save results
+                          and logs.
+
+Variant identifiers:
+  --variant-id-type {rsid,unique}
+                          Identifier convention written to every explicitly
+                          selected format. Use 'rsid' to extract an rsID from
+                          the VCF ID field or 'unique' to construct the
+                          configured chromosome-position-REF-ALT identifier.
+                          Per-target YAML settings can use different
+                          conventions (Default: rsid). Available options:
+                          rsid, unique.
+  --duplicate-id-policy POLICY
+                          Action for conflicting duplicate IDs after
+                          collapsing exact repeated records and applying
+                          supported reference matching (currently LDSC
+                          --merge-alleles). exclude_all removes every
+                          ambiguous record; error stops; most_significant,
+                          highest_maf, and highest_info retain only a unique
+                          best-ranked row. A missing ranking value or tied
+                          best rank excludes the whole group. Per-target YAML
+                          settings can use different policies
+                          (Default: exclude_all). Available options:
+                          exclude_all, error, most_significant, highest_maf,
+                          highest_info.
+
+External software:
+  --bcftools PATH         Full path or command name for bcftools
+                          (Default: bcftools).
+
+GCTA association inputs:
+  --gcta-reference-prefix PREFIX
+                          Prefix shared by the PLINK BED, BIM, and FAM
+                          LD-reference files (Default: unset).
+  --gene-list PATH        Required: for fastbat_gene, mbat_combo, or
+                          fastbat_set with --gmt.
+                          Four-column chromosome, start, end, gene-ID file
+                          used by GCTA (Default: unset).
+  --fastbat-set-list PATH
+                          Prepared custom fastBAT set file containing a set
+                          ID, SNP IDs, and END. Use this or --gmt, not both
+                          (Default: unset).
+  --gmt PATH              GMT pathway file converted to a fastBAT set list
+                          using --gene-list and the reference BIM; mutually
+                          exclusive with --fastbat-set-list (Default: unset).
+
+Input and reference compatibility:
+  --genome-build BUILD    Shared genome build of the harmonised GWAS, PLINK LD
+                          reference, and gene list when used; all
+                          coordinate-bearing inputs must match
+                          (Default: unset). Available options: GRCh37, GRCh38.
+  --gcta-reference-population CODE
+                          Population represented by the LD reference; no
+                          ancestry is inferred (Default: unset). Available
+                          options: EUR, AFR, EAS, SAS, AMR.
+
+GCTA association settings:
+  --method {fastbat_gene,fastbat_segment,fastbat_set,mbat_combo}
+                          Choose the tested unit and GCTA procedure:
+                          fastbat_gene: Test SNPs assigned to each gene and
+                          its configured window with LD-aware fastBAT.
+                          fastbat_segment: Test consecutive fixed-size genomic
+                          segments with LD-aware fastBAT.
+                          fastbat_set: Test custom SNP sets supplied through
+                          --fastbat-set-list or converted from --gmt pathways.
+                          mbat_combo: Test each gene by combining signed mBAT
+                          and unsigned fastBAT evidence
+                          (Default: fastbat_gene). Available options:
+                          fastbat_gene, fastbat_segment, fastbat_set,
+                          mbat_combo.
+  --gene-window-kb KB     Window added to both sides of each gene boundary
+                          (Default: 50).
+  --gmt-chromosome-label-policy {exact,strip_chr_prefix}
+                          How GMT conversion reconciles gene-list and BIM
+                          chromosome labels (Default: exact). Available
+                          options: exact, strip_chr_prefix.
+  --gmt-duplicate-gene-policy {error,deduplicate}
+                          How repeated gene symbols within a GMT pathway are
+                          handled (Default: deduplicate). Available options:
+                          error, deduplicate.
+  --gmt-unmapped-gene-policy {error,report}
+                          Whether GMT genes absent from the coordinate file
+                          fail or are reported (Default: report). Available
+                          options: error, report.
+  --gmt-empty-pathway-policy {error,omit}
+                          Whether pathways with no usable variants after
+                          BIM/GWAS intersection fail or are omitted
+                          (Default: omit). Available options: error, omit.
+  --fastbat-oversized-set-policy {error,omit}
+                          How sets above GCTA's 20,000-variant hard limit are
+                          handled (Default: omit). Available options: error,
+                          omit.
+  --fastbat-segment-size-kb KB
+                          Fixed segment size (Default: 100).
+  --gcta-coordinate-fallback, --no-gcta-coordinate-fallback
+                          Resolve nonmatching summary-statistic IDs by an
+                          unambiguous chromosome, position, and allele-pair
+                          match to the PLINK BIM (Default: true).
+  --gcta-minimum-reference-overlap FRACTION
+                          Minimum fraction of unique pipeline variants that
+                          must resolve to exact PLINK BIM IDs (Default: 0.5).
+  --gcta-chromosome-label-policy {exact,strip_chr_prefix}
+                          How reference and VCF chromosome labels are
+                          normalized before compatibility checks
+                          (Default: strip_chr_prefix). Available options:
+                          exact, strip_chr_prefix.
+  --gcta-allow-strand-complement, --no-gcta-allow-strand-complement
+                          Allow complementary single-nucleotide allele pairs
+                          when only direct ID matching is available
+                          (Default: false).
+  --gcta-reference-maf-min FRACTION
+                          Minimum MAF retained from the LD reference
+                          (Default: 0.01).
+  --fastbat-ld-cutoff R2  LD r-squared pruning cutoff used by fastBAT
+                          (Default: 0.9).
+  --mbat-svd-gamma FRACTION
+                          Minimum LD variance retained by mBAT principal
+                          components (Default: 0.9).
+  --frequency-difference-max FRACTION
+                          Maximum A1-frequency difference between GWAS and LD
+                          reference (Default: 0.2).
+  --print-component-p-values, --no-print-component-p-values
+                          Include mBAT and fastBAT component p-values
+                          (Default: true).
+  --write-snpset, --no-write-snpset
+                          Write the SNP sets included in the selected fastBAT
+                          or mBAT analysis (Default: false).
+  --gcta-top-results N    Number of lowest-p-value associations shown in the
+                          terminal summary (Default: 10).
+  --gcta-nominal-alpha ALPHA
+                          Nominal p-value threshold reported for individual
+                          associations (Default: 0.05).
+  --gcta-reporting-alpha ALPHA
+                          Family-wise alpha used only to report the Bonferroni
+                          threshold; results are never filtered by this value
+                          (Default: 0.05).
+  --gcta-fdr-alpha ALPHA  Benjamini-Hochberg false-discovery-rate threshold
+                          (Default: 0.05).
+  --gcta-p-value-digits N
+                          Significant digits used to display association
+                          p-values (Default: 4).
+  --gcta PATH             GCTA executable path or command name
+                          (Default: gcta64).
+
+Configuration:
+  --run-config PATH       YAML file containing settings and reference
+                          resources for every selected module.
+
+Choose analyses:
+  --modules [MODULE ...]  One or more final analyses to run, for example
+                          finemap magma pops. Available options:
+                          harmonisation, sumstat_filter, annot_ldblock,
+                          formatter, imputation, ld_clump, finemap, magma,
+                          gcta_cojo, gcta_gene, magmacovar, single_cell, pops,
+                          kpops, caldera, flames, heritability, manhattan,
+                          qc_summary, mixer, allele_orientation, enrichment.
+  --apply-filter          Run quality-control filtering before downstream
+                          analyses.
+  --apply-imputation      Impute missing summary statistics before downstream
+                          analyses.
+  --apply-manhattan       Create Manhattan and QQ plots.
+  --heritability          Estimate SNP heritability with LDSC.
+
+Workflow examples
+
+Run gene-based mBAT-combo:
+  postgwas pipeline \
+    --modules gcta_gene \
+    --method mbat_combo \
+    --vcf study.vcf.gz \
+    --gcta-reference-prefix reference/1000G_EUR \
+    --gene-list genes_grch37.txt \
+    --genome-build GRCh37 \
+    --gcta-reference-population EUR \
+    --dataset-id STUDY \
+    --output-directory results
+
+Convert a GMT pathway file and run custom-set fastBAT:
+  postgwas pipeline \
+    --modules gcta_gene \
+    --method fastbat_set \
+    --vcf study.vcf.gz \
+    --gcta-reference-prefix reference/1000G_EUR \
+    --gene-list genes_grch37.txt \
+    --gmt pathways.gmt \
+    --genome-build GRCh37 \
+    --gcta-reference-population EUR \
+    --dataset-id STUDY \
+    --output-directory results
+
+Export a complete configuration for these analyses:
+  postgwas config export \
+    --pipeline gcta_gene \
+    --style full \
+    --output analysis_pipeline.yaml
+
+Notes
+  The exported configuration includes required preceding modules in execution order.
