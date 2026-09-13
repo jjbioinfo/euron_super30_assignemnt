@@ -1,0 +1,10 @@
+[
+  {
+    "product_id": "jjj",
+    "name": "laptop",
+    "category": "electronics",
+    "quantity": 5,
+    "price": 60000.0,
+    "low_stock_limit": 5
+  }
+]

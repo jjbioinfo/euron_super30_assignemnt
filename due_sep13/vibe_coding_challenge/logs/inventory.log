@@ -1,0 +1,332 @@
+2026-09-13 15:02:33 | DEBUG    | inventory_app.logging_config | Logging configured: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/logs/inventory.log
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:02:33 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:02:33 | INFO     | inventory_app.inventory | Search completed: query='station', matches=1
+2026-09-13 15:02:33 | INFO     | inventory_app.inventory | Stock updated: id='P1', quantity=5
+2026-09-13 15:02:33 | INFO     | inventory_app.inventory | Stock updated: id='P1', quantity=4
+2026-09-13 15:02:33 | INFO     | inventory_app.inventory | Product removed: 'P1'
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:02:33 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:02:33 | WARNING  | inventory_app.inventory | Duplicate product ID: 'P1'
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name=''
+2026-09-13 15:02:33 | WARNING  | inventory_app.validators | Invalid text: name=''
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:02:33 | WARNING  | inventory_app.validators | Negative whole number: quantity=-1
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:02:33 | WARNING  | inventory_app.validators | Invalid whole number: quantity=True
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:02:33 | WARNING  | inventory_app.validators | Invalid number: price='free'
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:02:33 | WARNING  | inventory_app.validators | Invalid number range: price=nan
+2026-09-13 15:02:33 | WARNING  | inventory_app.inventory | Fractional stock change: 1.5
+2026-09-13 15:02:33 | WARNING  | inventory_app.inventory | Insufficient stock: id='P1', requested=3
+2026-09-13 15:02:33 | WARNING  | inventory_app.inventory | Product not found: 'missing'
+2026-09-13 15:02:33 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:33 | INFO     | inventory_app.storage | Inventory file is missing; starting empty: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:33 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:02:33 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json, products=1
+2026-09-13 15:02:33 | INFO     | inventory_app.storage | Inventory saved: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json, products=1
+2026-09-13 15:02:33 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:33 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:33 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:02:34 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:02:34 | INFO     | inventory_app.storage | Inventory loaded: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json, products=1
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o, products=1
+2026-09-13 15:02:34 | ERROR    | inventory_app.storage | Inventory could not be saved: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/storage.py", line 59, in save_inventory
+    path.write_text(json.dumps(products, indent=2), encoding="utf-8")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_local.py", line 555, in write_text
+    return PathBase.write_text(self, data, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_abc.py", line 651, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IsADirectoryError: [Errno 21] Is a directory: '/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o'
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:34 | ERROR    | inventory_app.storage | Inventory could not be loaded: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/storage.py", line 22, in load_inventory
+    saved_products = json.loads(path.read_text(encoding="utf-8"))
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpn47yvp2o/inventory.json
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json
+2026-09-13 15:02:34 | INFO     | inventory_app.storage | Inventory file is missing; starting empty: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json
+2026-09-13 15:02:34 | DEBUG    | inventory_app.cli | Inventory menu started
+2026-09-13 15:02:34 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:02:34 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:02:34 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:02:34 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:02:34 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pencil'
+2026-09-13 15:02:34 | WARNING  | inventory_app.inventory | Duplicate product ID: 'P1'
+2026-09-13 15:02:34 | ERROR    | inventory_app.cli | Inventory activity failed: product ID already exists: P1
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/cli.py", line 85, in run_cli
+    add_product(products, product)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/inventory.py", line 48, in add_product
+    raise InventoryError(f"product ID already exists: {product_id}")
+inventory_app.exceptions.InventoryError: product ID already exists: P1
+2026-09-13 15:02:34 | DEBUG    | inventory_app.cli | Menu choice: '7'
+2026-09-13 15:02:34 | DEBUG    | inventory_app.cli | Menu choice: '8'
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json, products=1
+2026-09-13 15:02:34 | INFO     | inventory_app.storage | Inventory saved: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json, products=1
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json
+2026-09-13 15:02:34 | DEBUG    | inventory_app.cli | Inventory menu finished
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json
+2026-09-13 15:02:34 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:02:34 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:02:34 | INFO     | inventory_app.storage | Inventory loaded: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json, products=1
+2026-09-13 15:02:34 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpahjalzkb/inventory.json
+2026-09-13 15:02:51 | DEBUG    | inventory_app.logging_config | Logging configured: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/logs/inventory.log
+2026-09-13 15:02:51 | INFO     | __main__ | Simple Inventory Manager started
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Loading inventory: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:02:51 | INFO     | inventory_app.storage | Inventory loaded: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=0
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Inventory menu started
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:02:51 | DEBUG    | inventory_app.inventory | Creating product: id='P101', name='Keyboard'
+2026-09-13 15:02:51 | INFO     | inventory_app.inventory | Product added: 'P101'
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Menu choice: '2'
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Menu choice: '7'
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Menu choice: '8'
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Saving inventory: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=1
+2026-09-13 15:02:51 | INFO     | inventory_app.storage | Inventory saved: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=1
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Inventory menu finished
+2026-09-13 15:02:51 | DEBUG    | inventory_app.logging_config | Logging configured: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/logs/inventory.log
+2026-09-13 15:02:51 | INFO     | __main__ | Simple Inventory Manager started
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Loading inventory: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:02:51 | DEBUG    | inventory_app.inventory | Creating product: id='P101', name='Keyboard'
+2026-09-13 15:02:51 | INFO     | inventory_app.inventory | Product added: 'P101'
+2026-09-13 15:02:51 | INFO     | inventory_app.storage | Inventory loaded: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=1
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Inventory menu started
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Menu choice: '2'
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Menu choice: '8'
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Saving inventory: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=1
+2026-09-13 15:02:51 | INFO     | inventory_app.storage | Inventory saved: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=1
+2026-09-13 15:02:51 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:02:51 | DEBUG    | inventory_app.cli | Inventory menu finished
+2026-09-13 15:03:14 | DEBUG    | inventory_app.logging_config | Logging configured: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/logs/inventory.log
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Search completed: query='station', matches=1
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Stock updated: id='P1', quantity=5
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Stock updated: id='P1', quantity=4
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Product removed: 'P1'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:03:14 | WARNING  | inventory_app.inventory | Duplicate product ID: 'P1'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name=''
+2026-09-13 15:03:14 | WARNING  | inventory_app.validators | Invalid text: name=''
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:03:14 | WARNING  | inventory_app.validators | Negative whole number: quantity=-1
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:03:14 | WARNING  | inventory_app.validators | Invalid whole number: quantity=True
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:03:14 | WARNING  | inventory_app.validators | Invalid number: price='free'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:03:14 | WARNING  | inventory_app.validators | Invalid number range: price=nan
+2026-09-13 15:03:14 | WARNING  | inventory_app.inventory | Fractional stock change: 1.5
+2026-09-13 15:03:14 | WARNING  | inventory_app.inventory | Insufficient stock: id='P1', requested=3
+2026-09-13 15:03:14 | WARNING  | inventory_app.inventory | Product not found: 'missing'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | INFO     | inventory_app.storage | Inventory file is missing; starting empty: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json, products=1
+2026-09-13 15:03:14 | INFO     | inventory_app.storage | Inventory saved: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json, products=1
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:03:14 | INFO     | inventory_app.storage | Inventory loaded: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json, products=1
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e, products=1
+2026-09-13 15:03:14 | ERROR    | inventory_app.storage | Inventory could not be saved: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/storage.py", line 59, in save_inventory
+    path.write_text(json.dumps(products, indent=2), encoding="utf-8")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_local.py", line 555, in write_text
+    return PathBase.write_text(self, data, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_abc.py", line 651, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IsADirectoryError: [Errno 21] Is a directory: '/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | ERROR    | inventory_app.storage | Inventory could not be loaded: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/storage.py", line 22, in load_inventory
+    saved_products = json.loads(path.read_text(encoding="utf-8"))
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpibveqs9e/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json
+2026-09-13 15:03:14 | INFO     | inventory_app.storage | Inventory file is missing; starting empty: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json
+2026-09-13 15:03:14 | DEBUG    | inventory_app.cli | Inventory menu started
+2026-09-13 15:03:14 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:03:14 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:03:14 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pencil'
+2026-09-13 15:03:14 | WARNING  | inventory_app.inventory | Duplicate product ID: 'P1'
+2026-09-13 15:03:14 | ERROR    | inventory_app.cli | Inventory activity failed: product ID already exists: P1
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/cli.py", line 85, in run_cli
+    add_product(products, product)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/inventory.py", line 48, in add_product
+    raise InventoryError(f"product ID already exists: {product_id}")
+inventory_app.exceptions.InventoryError: product ID already exists: P1
+2026-09-13 15:03:15 | DEBUG    | inventory_app.cli | Menu choice: '7'
+2026-09-13 15:03:15 | DEBUG    | inventory_app.cli | Menu choice: '8'
+2026-09-13 15:03:15 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json, products=1
+2026-09-13 15:03:15 | INFO     | inventory_app.storage | Inventory saved: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json, products=1
+2026-09-13 15:03:15 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json
+2026-09-13 15:03:15 | DEBUG    | inventory_app.cli | Inventory menu finished
+2026-09-13 15:03:15 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json
+2026-09-13 15:03:15 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:03:15 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:03:15 | INFO     | inventory_app.storage | Inventory loaded: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json, products=1
+2026-09-13 15:03:15 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmp8my4tymi/inventory.json
+2026-09-13 15:17:12 | DEBUG    | inventory_app.logging_config | Logging configured: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/logs/inventory.log
+2026-09-13 15:17:12 | INFO     | __main__ | Simple Inventory Manager started
+2026-09-13 15:17:12 | DEBUG    | inventory_app.storage | Loading inventory: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:17:12 | INFO     | inventory_app.storage | Inventory loaded: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=0
+2026-09-13 15:17:12 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:17:12 | DEBUG    | inventory_app.cli | Inventory menu started
+2026-09-13 15:17:20 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:17:52 | DEBUG    | inventory_app.inventory | Creating product: id='jjj', name='laptop '
+2026-09-13 15:17:52 | INFO     | inventory_app.inventory | Product added: 'jjj'
+2026-09-13 15:17:57 | DEBUG    | inventory_app.cli | Menu choice: '8'
+2026-09-13 15:17:57 | DEBUG    | inventory_app.storage | Saving inventory: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=1
+2026-09-13 15:17:57 | INFO     | inventory_app.storage | Inventory saved: path=/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json, products=1
+2026-09-13 15:17:57 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory.json
+2026-09-13 15:17:57 | DEBUG    | inventory_app.cli | Inventory menu finished
+2026-09-13 15:18:32 | DEBUG    | inventory_app.logging_config | Logging configured: /Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/logs/inventory.log
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Search completed: query='station', matches=1
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Stock updated: id='P1', quantity=5
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Stock updated: id='P1', quantity=4
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Product removed: 'P1'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:18:32 | WARNING  | inventory_app.inventory | Duplicate product ID: 'P1'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name=''
+2026-09-13 15:18:32 | WARNING  | inventory_app.validators | Invalid text: name=''
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:18:32 | WARNING  | inventory_app.validators | Negative whole number: quantity=-1
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:18:32 | WARNING  | inventory_app.validators | Invalid whole number: quantity=True
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:18:32 | WARNING  | inventory_app.validators | Invalid number: price='free'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P2', name='Book'
+2026-09-13 15:18:32 | WARNING  | inventory_app.validators | Invalid number range: price=nan
+2026-09-13 15:18:32 | WARNING  | inventory_app.inventory | Fractional stock change: 1.5
+2026-09-13 15:18:32 | WARNING  | inventory_app.inventory | Insufficient stock: id='P1', requested=3
+2026-09-13 15:18:32 | WARNING  | inventory_app.inventory | Product not found: 'missing'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | INFO     | inventory_app.storage | Inventory file is missing; starting empty: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json, products=1
+2026-09-13 15:18:32 | INFO     | inventory_app.storage | Inventory saved: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json, products=1
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:18:32 | INFO     | inventory_app.storage | Inventory loaded: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json, products=1
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd, products=1
+2026-09-13 15:18:32 | ERROR    | inventory_app.storage | Inventory could not be saved: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/storage.py", line 59, in save_inventory
+    path.write_text(json.dumps(products, indent=2), encoding="utf-8")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_local.py", line 555, in write_text
+    return PathBase.write_text(self, data, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_abc.py", line 651, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IsADirectoryError: [Errno 21] Is a directory: '/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | ERROR    | inventory_app.storage | Inventory could not be loaded: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/storage.py", line 22, in load_inventory
+    saved_products = json.loads(path.read_text(encoding="utf-8"))
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/miniconda3/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpv_opplzd/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json
+2026-09-13 15:18:32 | INFO     | inventory_app.storage | Inventory file is missing; starting empty: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.cli | Inventory menu started
+2026-09-13 15:18:32 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.cli | Menu choice: '1'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pencil'
+2026-09-13 15:18:32 | WARNING  | inventory_app.inventory | Duplicate product ID: 'P1'
+2026-09-13 15:18:32 | ERROR    | inventory_app.cli | Inventory activity failed: product ID already exists: P1
+Traceback (most recent call last):
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/cli.py", line 85, in run_cli
+    add_product(products, product)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/JJOHN41/Documents/my_learning/euron_super30/assignment/week4/vibe_coding_challenge/inventory_app/inventory.py", line 48, in add_product
+    raise InventoryError(f"product ID already exists: {product_id}")
+inventory_app.exceptions.InventoryError: product ID already exists: P1
+2026-09-13 15:18:32 | DEBUG    | inventory_app.cli | Menu choice: '7'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.cli | Menu choice: '8'
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Saving inventory: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json, products=1
+2026-09-13 15:18:32 | INFO     | inventory_app.storage | Inventory saved: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json, products=1
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory save attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.cli | Inventory menu finished
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Loading inventory: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json
+2026-09-13 15:18:32 | DEBUG    | inventory_app.inventory | Creating product: id='P1', name='Pen'
+2026-09-13 15:18:32 | INFO     | inventory_app.inventory | Product added: 'P1'
+2026-09-13 15:18:32 | INFO     | inventory_app.storage | Inventory loaded: path=/var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json, products=1
+2026-09-13 15:18:32 | DEBUG    | inventory_app.storage | Inventory load attempt finished: /var/folders/rl/w43l6j1j5_s67l6k8gn5hlqm0000gp/T/tmpr21rc0gy/inventory.json
